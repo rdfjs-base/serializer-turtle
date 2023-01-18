@@ -1,6 +1,6 @@
 {
   "name": "@rdfjs/serializer-turtle",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Turtle serializer that implements the RDF/JS Sink interface",
   "type": "module",
   "main": "index.js",
