@@ -16,6 +16,7 @@ const tests = [
   'example',
   'list',
   'list-empty',
+  'list-multi-ref',
   'literal',
   'literal-boolean',
   'literal-decimal',
