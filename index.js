@@ -3,7 +3,10 @@ import SerializerStream from './lib/SerializerStream.js'
 import TurtleSerializer from './lib/TurtleSerializer.js'
 
 class Serializer extends Sink {
-  constructor (options) {
+  constructor (options = {}) {
+    // support for legacy option base
+    options.baseIRI = options.baseIRI || options.base
+
     super(SerializerStream, options)
   }
 
