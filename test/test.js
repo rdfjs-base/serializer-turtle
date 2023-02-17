@@ -9,6 +9,9 @@ import Serializer from '../index.js'
 
 const tests = [
   'base',
+  'base-legacy',
+  'base-string',
+  'base-url',
   'blank-node',
   'blank-node-empty',
   'blank-nodes-multi-ref',
@@ -31,7 +34,19 @@ const tests = [
 
 const options = {
   base: {
+    baseIRI: rdf.namedNode('http://example.com/')
+  },
+  'base-legacy': {
+    filename: 'base',
     base: rdf.namedNode('http://example.com/')
+  },
+  'base-string': {
+    filename: 'base',
+    baseIRI: 'http://example.com/'
+  },
+  'base-url': {
+    filename: 'base',
+    baseIRI: new URL('http://example.com/')
   },
   prefix: {
     prefixes: [
@@ -42,8 +57,9 @@ const options = {
 }
 
 async function compareStreamNtToTtl (basename) {
-  const expected = (await readFile(new URL(`assets/${basename}.ttl`, import.meta.url))).toString()
-  const input = fromFile((new URL(`assets/${basename}.nt`, import.meta.url)).pathname)
+  const filename = (options[basename] && options[basename].filename) || basename
+  const expected = (await readFile(new URL(`assets/${filename}.ttl`, import.meta.url))).toString()
+  const input = fromFile((new URL(`assets/${filename}.nt`, import.meta.url)).pathname)
   const parser = new Serializer(options[basename])
   const output = parser.import(input)
   const result = await decode(output)
@@ -52,8 +68,9 @@ async function compareStreamNtToTtl (basename) {
 }
 
 async function compareTransformNtToTtl (basename) {
-  const expected = (await readFile(new URL(`assets/${basename}.ttl`, import.meta.url))).toString()
-  const input = fromFile((new URL(`assets/${basename}.nt`, import.meta.url)).pathname)
+  const filename = (options[basename] && options[basename].filename) || basename
+  const expected = (await readFile(new URL(`assets/${filename}.ttl`, import.meta.url))).toString()
+  const input = fromFile((new URL(`assets/${filename}.nt`, import.meta.url)).pathname)
   const quads = await chunks(input)
   const parser = new Serializer(options[basename])
   const result = parser.transform(quads)
