@@ -14,6 +14,7 @@ const tests = [
   'base-url',
   'blank-node',
   'blank-node-empty',
+  'blank-node-root',
   'blank-nodes-multi-ref',
   'blank-nodes-nested',
   'example',
