@@ -19,6 +19,7 @@ const tests = [
   'blank-nodes-nested',
   'example',
   'list',
+  'list-blank-node',
   'list-empty',
   'list-multi-ref',
   'literal',

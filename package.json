@@ -29,7 +29,7 @@
     "@rdfjs/sink": "^2.0.0",
     "@rdfjs/term-map": "^2.0.0",
     "@rdfjs/to-ntriples": "^2.0.0",
-    "@rdfjs/tree": "^0.2.0",
+    "@rdfjs/tree": "^0.2.1",
     "readable-stream": "^4.3.0",
     "stream-chunks": "^1.0.0"
   },
