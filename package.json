@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "c8": "^10.0.0",
-    "mocha": "^10.2.0",
+    "mocha": "^11.0.1",
     "rdf-utils-fs": "^3.0.0",
     "stricter-standard": "^0.3.1"
   }
