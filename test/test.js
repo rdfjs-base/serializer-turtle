@@ -24,6 +24,7 @@ const tests = [
   'list-multi-ref',
   'literal',
   'literal-boolean',
+  'literal-datatype',
   'literal-decimal',
   'literal-double',
   'literal-integer',
@@ -49,6 +50,11 @@ const options = {
   'base-url': {
     filename: 'base',
     baseIRI: new URL('http://example.com/')
+  },
+  'literal-datatype': {
+    prefixes: [
+      ['ex', rdf.namedNode('http://example.org/')]
+    ]
   },
   prefix: {
     prefixes: [
